@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>st2Demo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 配置struts2 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		<!-- 
+			修改strust的默认的配置文件的位置
+			此处记住一条即可：struts在运行时总是从classess目录下寻址配置文件.
+			例如：想将配置文件放到/WEB-INF/conf/struts.xml
+				依据/WEB-INF/classess 可以导出如下路径:
+					../conf/strtus.xml
+			注意：
+				如果修改默认文件的位置(src/struts.xml)怎在此处需要引入struts-default.xml文件以导入默认配置
+		 -->
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>
+				struts-default.xml,
+				../conf/struts.xml
+			</param-value>
+		</init-param>
+		
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
