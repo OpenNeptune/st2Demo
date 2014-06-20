@@ -9,12 +9,26 @@
 	height: 900px;
 	margin: auto;
 	padding: 2px;
+	background-color:#FCFCFC;
 }
 .column{
 	border:1px solid #bbb;
 	border-radius: 4px,4px,4px,4px;
 	height: auto;
 	margin: 2px;
+	background-color:#F7F7F7;
+}
+.know{
+	margin: 0px;
+	padding: 10px;
+	font-size:12px;
+	border:1px solid #bbb;
+	height:auto;
+	background-color:#F5F5F5;
+}
+.know h5{
+	font-szie:11px;
+	color£ºred;
 }
 .list{
 	margin: 10px;
