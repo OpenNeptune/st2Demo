@@ -52,8 +52,15 @@
 					&nbsp;&nbsp;对象来替代这 3 个对象, 在 Action 中可以直接使用 HttpServletRequest, HttpServletSession, ServletContext 对应的 Map 对象来保存和读取数据. <br>
 					&nbsp;&nbsp;&nbsp;&nbsp;-通过 Action 实现如下接口<br>
 					·与 Servlet API 耦合的访问方式<br>
-					&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;-通过实现对应的 XxxAware 接口<br>
+					&nbsp;&nbsp;直接访问 Servlet API 将使 Action 与 Servlet 环境耦合在一起 , 测试时需要有 Servlet 容器 , 不便于对 Action 的单元测试 .<br>
+					&nbsp;&nbsp;• 直接获取 HttpServletRequest 对象 :
+					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getRequest()
+					&nbsp;&nbsp;• 直接获取 HttpSession 对象
+					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getRequest().getSession()
+					&nbsp;&nbsp;• 直接获取 ServletContext 对象
+					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getServletContext()
+					&nbsp;&nbsp;• 通过实现对应的 XxxAware 接口<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;- 通过实现 ServletRequestAware, ServletContextAware 等接口的方式
 					
 					
 			</div>
@@ -63,6 +70,10 @@
 					<li><a href="Action/ActionContextForwardTest.jsp">ActionContextForwardTest</a></li>
 					<li><a href="Action/ActionAwareTest.jsp">ActionAwareTest</a></li>
 					<li><a href="Action/ActionAwareForwardTest.jsp">ActionAwareForwardTest</a></li>
+					<li><a href="Action/ServletActionContextTest.jsp">ServetActionContextTest</a></li>
+					<li><a href="Action/ServletActionContextForwardTest.jsp">ServetActionContextForwardTest</a></li>
+					<li><a href="Action/ServletAwareTest.jsp">ServletAwareTest</a></li>
+					<li><a href="Action/ServletAwareForwardTest.jsp">ServletAwareForwardTest</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

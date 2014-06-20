@@ -71,7 +71,7 @@ public class AwareAction implements ApplicationAware, RequestAware, SessionAware
 			System.out.println("request:"+entry.getKey()+"===>"+entry.getValue());
 		}
 		//操作请求参数对应的Map
-		System.out.println("parameterId:"+(parameterMap.get("id"))[0]);
+		System.out.println("parameterId:"+(parameterMap.get("id")));
 		String[] par = new String[]{"parameterValue"};
 		parameterMap.put("parameterKey", par);
 		Iterator<Entry<String, String[]>> iterator2 = parameterMap.entrySet().iterator();
