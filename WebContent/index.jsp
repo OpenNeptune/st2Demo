@@ -53,16 +53,14 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;-通过 Action 实现如下接口<br>
 					·与 Servlet API 耦合的访问方式<br>
 					&nbsp;&nbsp;直接访问 Servlet API 将使 Action 与 Servlet 环境耦合在一起 , 测试时需要有 Servlet 容器 , 不便于对 Action 的单元测试 .<br>
-					&nbsp;&nbsp;• 直接获取 HttpServletRequest 对象 :
-					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getRequest()
-					&nbsp;&nbsp;• 直接获取 HttpSession 对象
-					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getRequest().getSession()
-					&nbsp;&nbsp;• 直接获取 ServletContext 对象
-					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getServletContext()
+					&nbsp;&nbsp;• 直接获取 HttpServletRequest 对象 :<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getRequest()<br>
+					&nbsp;&nbsp;• 直接获取 HttpSession 对象<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getRequest().getSession()<br>
+					&nbsp;&nbsp;• 直接获取 ServletContext 对象<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;– ServletActionContext.getServletContext()<br>
 					&nbsp;&nbsp;• 通过实现对应的 XxxAware 接口<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;- 通过实现 ServletRequestAware, ServletContextAware 等接口的方式
-					
-					
+					&nbsp;&nbsp;&nbsp;&nbsp;- 通过实现 ServletRequestAware, ServletContextAware 等接口的方式<br>
 			</div>
 			<div class="list">
 				<ul>
@@ -74,6 +72,44 @@
 					<li><a href="Action/ServletActionContextForwardTest.jsp">ServetActionContextForwardTest</a></li>
 					<li><a href="Action/ServletAwareTest.jsp">ServletAwareTest</a></li>
 					<li><a href="Action/ServletAwareForwardTest.jsp">ServletAwareForwardTest</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="result" class="column">
+			<div class="tit">
+				<h3>Result</h3>
+			</div>
+			<div class="know">
+				<h5>简要</h5>
+				在struts2框架中，当action处理完之后，就应该向用户返回结果信息，该任务被分为两部分：结果类型和结果本身<br>
+				结果本身：就是Action对应的method方法返回的值，通常是字符串，在struts2的ActionSupport中定义了几个常用的字符串<br>
+				&nbsp;&nbsp;·ActionSupport实现了action接口，在该接口中定义常用的几个用于表示处理结果的字符串<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;-public static final String SUCCESS = "success";<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;-public static final String NONE = "none";<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;-public static final String ERROR = "error";<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;-public static final String INPUT = "input";<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;-public static final String LOGIN = "login";<br>
+				结果类型：结果类型提供了返回给用户信息类型的实现细节。<br>
+				&nbsp;&nbsp;·常用的结果类型<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;dispatcher	 org.apache.struts2.dispatcher.ServletDispatcherResult	 默认结果类型，用来呈现JSP页面<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;chain	 	com.opensymphony.xwork2.ActionChainResult	 将action和另外一个action链接起来<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;freemarker	 org.apache.struts2.views.freemarker.FreemarkerResult	 呈现Freemarker模板<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;httpheader	 org.apache.struts2.dispatcher.HttpHeaderResult	 返回一个已配置好的HTTP头信息响应<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;redirect	 org.apache.struts2.dispatcher.ServletRedirectResult	 将用户重定向到一个已配置好的URL<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;redirectAction	 org.apache.struts2.dispatcher.ServletActionRedirectResult	 将用户重定向到一个已定义好的action<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;stream	 org.apache.struts2.dispatcher.StreamResult	 将原始数据作为流传递回浏览器端，该结果类型对下载的内容和图片非常有用<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;velocity	 org.apache.struts2.dispatcher.VelocityResult	 呈现Velocity模板<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;xslt	 org.apache.struts2.views.xslt.XSLTResult	 呈现XML到浏览器，该XML可以通过XSL模板进行转换<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;plaintext	 org.apache.struts2.dispatcher.PlainTextResult	 返回普通文本类容<br>
+				&nbsp;&nbsp;·常用的结果类型补充<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;redirect:action处理完后重定向到一个视图资源（如：jsp页面），请求参数全部丢失，action处理结果也全部丢失。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;redirect-action:action处理完后重定向到一个action，请求参数全部丢失，action处理结果也全部丢失。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;chain:action处理完后转发到一个action，请求参数全部丢失，action处理结果不会丢失。<br>
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="#">result</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
