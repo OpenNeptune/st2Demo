@@ -114,6 +114,75 @@
 			</div>
 			<div class="clear"></div>
 		</div>
+		<div id="ognl" class="column">
+			<div class="tit">
+				<h3>ValueStack(objectStack/ContextMAP)OGNL</h3>
+			</div>
+			<div class="know">
+				<h5>值栈简要及作用</h5>
+				struts2的Action中可以通过属性获取所有相关Web资源值，如请求阐述，Action配置参数等信息。<br>
+				在这个过程中我们所做的事情就是在Action类中声明与参数同名的属性，在struts调用Action类的方法的时候，<br>
+				就会为这些属性赋值。<br>
+				为了完成这个功能，struts2引入了一个核心对象ValueStack，它是一个类似于栈的对象。<br>
+				这个对象贯穿整个Action的生命周期，并且Action类的一个实例就用拥有一个ValueStack对象，<br>
+				即保证其实显示线程安全的。在ValueStack中保存这当前Action对象和其他相关对象。<br>
+				Struts框架把ValueStack对象保存在名为struts.valueStack的请求属性中。<br>
+				当struts2接受到一个请求的后，会先建立Action类对象的实例，但并不会调用相应的Action方法，<br>
+				而是现将Action类的相关属性放到valueStack对象的顶层，只是所有的值都是默认值，<br>
+				里让String类型的默认值是null,int类型的为0,处理完以上的工作后，struts2就会调用拦截器，<br>
+				当调用完所有的拦截器，会将Valuestack对象顶层的属性值赋值给Action中相对应的属性，<br>
+				最后就会调用Action的Action方法。<br>
+				在Struts 2的的Action类可以获得与属性同名的参数值就是通过不同的拦截器来处理的，<br>
+				如获得请求参数的拦截器是params，获得Action的配置参数的拦 截器是staticParams等。<br>
+				在这些拦截器内部读取相应的值，并更新ValueStack对象顶层节点的相应属性的值。<br>
+				而ValueStack对象 就象一个传送带，将属性值从一个拦截器传到了另一个拦截器（当然，在这其间，属性值可能改变），<br>
+				最后会传到Action对象，并将ValueStack对 象中的属性的值终值赋给Action类的相应属性 。<br>
+			<h5>获取值栈对象</h5>
+				在Action中或拦截器中可以通过ActionContext获取值栈对象。<br>
+				//1. 获取值栈<br>
+				ValueStack valueStack = ActionContext.getContext().getValueStack();<br>
+			<h5>值栈的组成</h5>
+				值栈分为俩部分组成：Map栈 和 对象栈<br>
+			<h5>Map栈</h5>
+				map栈是OgnlContext类型，是个Map。struts把各种各样的映射关系压入栈中，实际上就是对ActionContext的一个引用。<br>
+			struts会把下面的这些映射压入到ContextMap中<br>
+			&nbsp;&nbsp;- paramerters:该Map中包含当前请求的请求参数<br>
+			&nbsp;&nbsp;- request:该Map中包含当前request对象中的所有属性<br>
+			&nbsp;&nbsp;- session:该map中包含当前session对象中的所有属性<br>
+			&nbsp;&nbsp;- application：该map中包含当前application对象中的所有属性<br>
+			&nbsp;&nbsp;- attr:该map安顺序request,session,application检索某个属性<br>
+			<h5>对象栈</h5>
+				objectStack：struts把action和相关对象压入objectstack中。<br>
+			<h5>OGNL</h5>
+				OGNL是object-graph navigation language的缩写，全称为对象导航语言，是一种功能强大的表达式语言，<br>
+				它通过简单一致的语法，可以任意存取对象的属性或者调用对象的方法，能够遍历整个对象的结构，实现对象属性类型的转换等功能。<br>
+				OGNL实际上就围绕一个Map对象进行表达式计算,由ognl.OgnlContext类表示，它里面可以存放很多个JavaBean对象。<br>
+				在struts中如该希望访问ContextMap中的数据，需要给OGNL表达式加上一个前缀字符#,如果没有前缀字符#，搜索将在ObjectStatck里进行。<br>
+			<h5>读取ObjectStack里的对象的属性</h5>
+				若想访问ObjectStack里的某个对象的属性，可以使用以下几种形式：<br>
+			&nbsp;&nbsp;- object.propertyName   *<br>
+			&nbsp;&nbsp;- object['propertyName']<br>
+			&nbsp;&nbsp;- object[“propertyName”]<br>
+				ObjectStack里的对象可以通过一个从零开始的下标来引用。ObjectStack里的栈顶对象可以用[0]来引用，它下面的那个对象可以用[1]引用。<br>
+				若在指定的对象里面没有找到指定的属性，则到指定对象的下一个对象里继续搜索。即[N]的含义是从第n个开始搜索，而不是只搜索第n个对象。<br>
+				若从栈顶对象开始搜索，则可以省略下标部分。<br>
+			<h5>读取ContextMap里的对象属性</h5>
+				若想访问ContextMap里的某个对象的属性，可以使用以下几种形式<br>
+			&nbsp;&nbsp;- #object.propertyName *<br>
+			&nbsp;&nbsp;- #object['propertyName']<br>
+			&nbsp;&nbsp;- #object[“propertyName”]<br>
+				例如：<br>
+					返回session中的code属性:#session.code<br>
+					返回request中的customer属性的name属性:#request.customer.name<br>
+					返回域对象(按request，session,application的顺序)的lastAccessDate属性:#attr.lastAccessDate<br>
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="ognl/ognlAction.action">测试OGNL表达式</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
 </body>
 </html>

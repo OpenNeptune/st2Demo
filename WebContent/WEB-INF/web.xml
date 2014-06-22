@@ -17,7 +17,8 @@
       <param-value>
 				struts-default.xml,
 				../conf/struts.xml,
-				../conf/ActionTest.xml
+				../conf/ActionTest.xml,
+				../conf/ognlTest.xml
 			</param-value>
     </init-param>
   </filter>
