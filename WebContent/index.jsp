@@ -189,6 +189,23 @@
 			</div>
 			<div class="clear"></div>
 		</div>
+		<div id="tag" class="column">
+			<div class="tit">
+				<h3>标签</h3>
+			</div>
+			<div class="know">
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="tag/commonTagUrl.jsp">通用标签URL</a></li>
+					<li><a href="tag/commonTagDate.jsp">通用标签DATE</a></li>
+					<li><a href="tag/formDemo01.jsp">表单标签</a></li>
+					<li><a href="tag/formDemo_checkbox.jsp">表单标签checkbox</a></li>
+					<li><a href="form/checkboxlist.action">表单标签checkbox-list</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
 </body>
 </html>

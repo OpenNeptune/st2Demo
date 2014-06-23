@@ -50,4 +50,24 @@
 		</action>
 	</package>
 
+
+	<!-- 测试struts标签 -->
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="login" class="st2Demo.tag.userAction" method="login">
+			<result name="input">/tag/formDemo01.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 测试表单标签 -->
+	<package name="formtag" namespace="/form" extends="struts-default">
+		<!-- 测试checkbox标签 -->
+		<action name="checkbox" class="st2Demo.tag.ISagree" method="isAgree">
+			<result name="input">/tag/formDemo_checkbox.jsp</result>
+		</action>
+		
+		<!-- checkboxlist -->
+		<action name="checkboxlist" class="st2Demo.tag.checkboxList" method="execute">
+			<result name="input">/tag/formDemo_checkboxlist.jsp</result>
+		</action>
+	</package>
 </struts>
