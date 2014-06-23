@@ -175,10 +175,16 @@
 					返回session中的code属性:#session.code<br>
 					返回request中的customer属性的name属性:#request.customer.name<br>
 					返回域对象(按request，session,application的顺序)的lastAccessDate属性:#attr.lastAccessDate<br>
+			<h5>实现原理</h5>
+			原理 : Struts2  将包装  HttpServletRequest  对象后的  org.apache.struts2.dispatcher.StrutsRequestWrapper  对象传到页面上 ,  而这个类重写了  getAttribute()  方法 . 
 			</div>
 			<div class="list">
 				<ul>
 					<li><a href="ognl/ognlAction.action">测试OGNL表达式</a></li>
+					<li><a href="ognl/ogblTestArrayResult.jsp">OGNL 访问arry</a></li>
+					<li><a href="ognl/ogblTestListResult.jsp">OGNL 访问list</a></li>
+					<li><a href="ognl/ogblTestMapResult.jsp">OGNL 访问Map</a></li>
+					<li><a href="ognl/ogblTeststaticFieldResult.jsp">OGNL java类的静态字段</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

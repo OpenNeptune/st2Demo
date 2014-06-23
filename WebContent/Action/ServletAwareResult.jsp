@@ -7,7 +7,6 @@
 <title>测试ServletActionContext</title>
 </head>
 <body>
-	<s:debug></s:debug>
 	
 	application:${applicationScope.applicationKey }<br>
 			:${applicationScope.appName }<br>
