@@ -69,5 +69,15 @@
 		<action name="checkboxlist" class="st2Demo.tag.checkboxList" method="execute">
 			<result name="input">/tag/formDemo_checkboxlist.jsp</result>
 		</action>
+		
+		<!-- radio -->
+		<action name="radioAction" class="st2Demo.tag.radioAction" method="sexAction">
+			<result name="input">/tag/formRaidoSelect.jsp</result>
+		</action>
+		
+		<!-- radion -->
+		<action name="selectAction" class="st2Demo.tag.selectAction" method="cityListAction">
+			<result name="input">/tag/formRaidoSelect.jsp</result>
+		</action>
 	</package>
 </struts>
