@@ -69,5 +69,11 @@
 		<action name="checkboxlist" class="st2Demo.tag.checkboxList" method="execute">
 			<result name="input">/tag/formDemo_checkboxlist.jsp</result>
 		</action>
+		
+		<!-- 一个综合实例 -->
+		<action name="employee*"  class="st2Demo.tagDemo.Action.EmployeeAction" method="{1}Action">
+			<result name="input">/tag/employeeadd.jsp</result>
+			<result name="success">/tag/employeesee.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -202,6 +202,7 @@
 					<li><a href="tag/formDemo01.jsp">表单标签</a></li>
 					<li><a href="tag/formDemo_checkbox.jsp">表单标签checkbox</a></li>
 					<li><a href="form/checkboxlist.action">表单标签checkbox-list</a></li>
+					<li><a href="form/employeeadd.action">标签综合实例</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
