@@ -70,6 +70,7 @@
 			<result name="input">/tag/formDemo_checkboxlist.jsp</result>
 		</action>
 		
+<<<<<<< HEAD
 		<!-- radio -->
 		<action name="radioAction" class="st2Demo.tag.radioAction" method="sexAction">
 			<result name="input">/tag/formRaidoSelect.jsp</result>
@@ -78,6 +79,12 @@
 		<!-- radion -->
 		<action name="selectAction" class="st2Demo.tag.selectAction" method="cityListAction">
 			<result name="input">/tag/formRaidoSelect.jsp</result>
+=======
+		<!-- 一个综合实例 -->
+		<action name="employee*"  class="st2Demo.tagDemo.Action.EmployeeAction" method="{1}Action">
+			<result name="input">/tag/employeeadd.jsp</result>
+			<result name="success">/tag/employeesee.jsp</result>
+>>>>>>> 6211ebba1a126740bc8c725af443c6ef37a9faad
 		</action>
 	</package>
 </struts>
