@@ -70,21 +70,28 @@
 			<result name="input">/tag/formDemo_checkboxlist.jsp</result>
 		</action>
 		
-<<<<<<< HEAD
 		<!-- radio -->
+		<!-- 
 		<action name="radioAction" class="st2Demo.tag.radioAction" method="sexAction">
 			<result name="input">/tag/formRaidoSelect.jsp</result>
 		</action>
 		
-		<!-- radion -->
+		
 		<action name="selectAction" class="st2Demo.tag.selectAction" method="cityListAction">
 			<result name="input">/tag/formRaidoSelect.jsp</result>
-=======
+		</action>
+		 -->
 		<!-- 一个综合实例 -->
 		<action name="employee*"  class="st2Demo.tagDemo.Action.EmployeeAction" method="{1}Action">
 			<result name="input">/tag/employeeadd.jsp</result>
 			<result name="success">/tag/employeesee.jsp</result>
->>>>>>> 6211ebba1a126740bc8c725af443c6ef37a9faad
+		</action>
+	</package>
+	<!-- 一个完整的CURD的例子 -->
+	<package name="curd" namespace="/curd" extends="struts-default">
+		<action name="emp-*" class="st2Demo.CRUD.Action.employeeAction" method="{1}Action">
+			<result name="emp-{1}">/curd/emp{1}.jsp</result>
+			<result name="success" type="redirectAction">emp-list</result>
 		</action>
 	</package>
 </struts>
