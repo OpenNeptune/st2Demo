@@ -87,6 +87,10 @@
 	</package>
 	<!-- 一个完整的CURD的例子 -->
 	<package name="curd" namespace="/curd" extends="struts-default">
+		<!-- 修改该包中的默认的拦截器栈 -->
+		<!-- 
+		<default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref>
+		-->
 		<action name="emp-*" class="st2Demo.CRUD.Action.employeeAction" method="{1}Action">
 			<result name="emp-{1}">/curd/emp{1}.jsp</result>
 			<result name="success" type="redirectAction">emp-list</result>
