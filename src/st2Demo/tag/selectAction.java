@@ -1,10 +1,5 @@
 package st2Demo.tag;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.struts2.interceptor.ParameterAware;
-
 
 public class selectAction {
 	
