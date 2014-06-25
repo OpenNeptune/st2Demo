@@ -71,7 +71,6 @@
 		</action>
 		
 		<!-- radio -->
-		<!-- 
 		<action name="radioAction" class="st2Demo.tag.radioAction" method="sexAction">
 			<result name="input">/tag/formRaidoSelect.jsp</result>
 		</action>
@@ -80,7 +79,6 @@
 		<action name="selectAction" class="st2Demo.tag.selectAction" method="cityListAction">
 			<result name="input">/tag/formRaidoSelect.jsp</result>
 		</action>
-		 -->
 		<!-- 一个综合实例 -->
 		<action name="employee*"  class="st2Demo.tagDemo.Action.EmployeeAction" method="{1}Action">
 			<result name="input">/tag/employeeadd.jsp</result>
