@@ -7,25 +7,47 @@ package st2Demo.CRUD.Action;
  * 		此处使用了ModelDrvien接口技术
  */
 
+import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.omg.PortableInterceptor.ACTIVE;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.util.ValueStack;
 
 import st2Demo.CRUD.CRM.Employee;
 import st2Demo.CRUD.CRM.employeeDao;
 
 @SuppressWarnings("unused")
-public class employeeAction implements RequestAware,ModelDriven<Employee>{
+public class employeeAction implements RequestAware,ModelDriven<Employee>,Preparable,ServletRequestAware{
 	
 	private employeeDao dao = new employeeDao();
 	
 	private Map<String, Object> requestMap;
 
+	private HttpServletRequest request;
+	
 	private Employee employee;
 	
+	private Integer employeeId;
+	
+
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
+	}
+
 	public Employee getEmployee() {
 		return employee;
 	}
@@ -64,32 +86,52 @@ public class employeeAction implements RequestAware,ModelDriven<Employee>{
 //			//对现有的做修改
 //			employee = dao.getById(employeeId);
 //		}
-		employee = new Employee();
+		//employee = new Employee();
 		return employee;
 	}
 	
 	/**
 	 * Action  
 	 */
-	
 	public String listAction() {
 		requestMap.put("employeeList", dao.getList());
 		return "emp-list";
 	}
-
+	///////////////////////////////////////////////////////////
+	public void prepareDeleteAction(){
+		employee = dao.getById(employeeId);
+	}
 	public String deleteAction() {
 		dao.deleteById(employee.getEmployeeId());
 		return "success";
 	}
 
+	///////////////////////////////////////////////////////////
+	public void prepareAddAction(){
+		employee = new Employee();
+	}
 	public String addAction(){
 		dao.add(employee);
 		return "success";
 	}
 	
+	///////////////////////////////////////////////////////////
+	public void prepareUpdateAction(){
+		employee = dao.getById(employeeId);
+	}
 	public String updateAction(){
 		dao.edit(employee);
 		return "success";
+	}
+	
+	
+	///////////////////////////////////////////////////////////
+	public void prepareEditAction(){
+		//action使用paramsPrepareParamsStack拦截器栈
+		//并且实现了preapare接口，
+		//所以再调用editAction方法前，改方法被调用，为ModelDriven准备对象，以便压入到对象栈顶
+		System.out.println("prepareEditAction is call....");
+		employee = dao.getById(employeeId);
 	}
 	public String editAction(){
 		//下面的方式不能完成表单回显
@@ -101,9 +143,30 @@ public class employeeAction implements RequestAware,ModelDriven<Employee>{
 		//2.通过dao获取一个employeed对象并将其压入valuestack，中用于回显
 		//3.注意此时valuestack中有俩个valuestack对象
 		//ActionContext.getContext().getValueStack().push(dao.getById(employee.getEmployeeId()));
-		
-		
 		return "emp-edit";
+	}
+
+
+	@Override
+	public void prepare() throws Exception {
+		//当action实现了prepare接口后，struts在调用目标action的action方法前会调用
+		//prepareMehotd或prepareDoMethod方法，当然改方法在modeldriven前调用，因此可以通过改方式觉得
+		//新建一个employee对象还是从数据库中返回一个对象
+		ActionContext context = ActionContext.getContext();
+		System.out.println(ActionContext.getContext().getActionInvocation());
+		System.out.println(ActionContext.getContext().get("current.property.path"));
+/*		Enumeration<String> enumeration = request.getAttributeNames();
+		while(enumeration.hasMoreElements()){
+			String name = enumeration.nextElement();
+			System.out.println(name+":"+request.getAttribute(name));
+		}*/
+		//System.out.println(request.getAttribute("javax.servlet.forward.request_uri"));
+	
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest arg0) {
+		request = arg0;
 	}
 
 
