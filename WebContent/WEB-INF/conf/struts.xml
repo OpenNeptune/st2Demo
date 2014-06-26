@@ -40,6 +40,10 @@
 			<result>/helloworld/helloworld.jsp</result>
 		</action>
 		
+		
+		<action name="printURL" class="st2Demo.Action.PrintURLAction" method="printAction">
+			<result>/helloworld/helloworld.jsp</result>
+		</action>
 		<!-- 配置一个product的例子 -->
 		<!-- 
 			次action会派送到st2Demo.helloWorld.Product然后调用save方法，然后根据该方法的返回值
