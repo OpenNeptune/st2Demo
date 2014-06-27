@@ -40,7 +40,6 @@
 			<result>/helloworld/helloworld.jsp</result>
 		</action>
 		
-		
 		<action name="printURL" class="st2Demo.Action.PrintURLAction" method="printAction">
 			<result>/helloworld/helloworld.jsp</result>
 		</action>

@@ -221,6 +221,24 @@
 			</div>
 			<div class="clear"></div>
 		</div>
+		<div id="curd" class="column">
+			<div class="tit">
+				<h3>VALIDATE实例</h3>
+			</div>
+			<div class="know">
+				– 若  Action  类没有实现  ValidationAware  接口：  Struts  在遇到类型转换错误时仍会继续调用其  Action  方法 ,  就好像什么都没发生一样 .<br>
+				– 若  Action  类实现  ValidationAware  接口： Struts  在遇到类型转换错误时将不会继续调用其  Action  方法 :<br>
+				&nbsp;&nbsp;Struts  将检查相关  action  元素的声明是否包含着一个  name=input  的  result.  <br>
+				&nbsp;&nbsp; 如果有 , Struts  将把控制权转交给那个  result  元素 ; <br>
+				&nbsp;&nbsp;若没有  input  结果 , Struts  将抛出一个异常<br>
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="validate/input.jsp">基本类型转行</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
 </body>
 </html>

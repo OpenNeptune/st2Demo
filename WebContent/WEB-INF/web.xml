@@ -18,7 +18,8 @@
 				struts-default.xml,
 				../conf/struts.xml,
 				../conf/ActionTest.xml,
-				../conf/ognlTest.xml
+				../conf/ognlTest.xml,
+				../conf/validate.xml
 			</param-value>
     </init-param>
   </filter>
