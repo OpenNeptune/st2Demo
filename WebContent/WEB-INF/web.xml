@@ -19,7 +19,8 @@
 				../conf/struts.xml,
 				../conf/ActionTest.xml,
 				../conf/ognlTest.xml,
-				../conf/validate.xml
+				../conf/validate.xml,
+				../conf/convert.xml
 			</param-value>
     </init-param>
   </filter>

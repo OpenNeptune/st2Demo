@@ -231,10 +231,32 @@
 				&nbsp;&nbsp;Struts  将检查相关  action  元素的声明是否包含着一个  name=input  的  result.  <br>
 				&nbsp;&nbsp; 如果有 , Struts  将把控制权转交给那个  result  元素 ; <br>
 				&nbsp;&nbsp;若没有  input  结果 , Struts  将抛出一个异常<br>
+				<h5>自定义类型转换器</h5>
+				  	1). 为什么需要自定义的类型转换器 ? 因为 Struts 不能自动完成 字符串 到 引用类型 的 转换.<br>
+				 	2). 如何定义类型转换器:<br>
+				 	I.  开发类型转换器的类: 扩展 StrutsTypeConverter 类.<br>
+				 	II. 配置类型转换器: <br>
+				 	有两种方式<br>
+				 	①. 基于字段的配置: <br>
+				 		- 在字段所在的 Model(可能是 Action, 可能是一个 JavaBean) 的包下, 新建一个 ModelClassName-conversion.properties 文件<br>
+				 		- 在该文件中输入键值对: fieldName=类型转换器的全类名.<br> 
+				 		- 第一次使用该转换器时创建实例. <br>
+				 		- 类型转换器是单实例的!<br>
+				 	<br>
+				 	②. 基于类型的配置:<br>
+				 		- 在 src 下新建 xwork-conversion.properties<br>
+				 		- 键入: 待转换的类型=类型转换器的全类名.<br>
+				 		- 在当前 Struts2 应用被加载时创建实例. <br>
+				自定义类型转换器必须实现 ongl.TypeConverter 接口或对这个接口的某种具体实现做扩展。<br>
+					比如StrutsTypeConvertter<br>
+					
 			</div>
 			<div class="list">
 				<ul>
-					<li><a href="validate/input.jsp">基本类型转行</a></li>
+					<li><a href="validate/input.jsp">基本类型转行(默认主题)</a></li>
+					<li><a href="validate/input_simple.jsp">基本类型转行(simple主题)</a></li>
+					<li><a href="converter/DateConvert.jsp">转行Date转换测试（默认）</a></li>
+					<li><a href="converter/DateConvert_impl.jsp">Date自定义类型转换器</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

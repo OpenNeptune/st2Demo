@@ -7,7 +7,7 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
 
-	<package name="validate" namespace="/validate" extends="struts-default">
+	<package name="converter" namespace="/converter" extends="struts-default">
 		<default-action-ref name="index" />
 		<global-results>
 			<result name="error">/error.jsp</result>
@@ -18,14 +18,15 @@
 		</global-exception-mappings>
 
 		<!-- 类型转行 -->
-		<action name="baseAction" class="st2Demo.validate.Action.BaseAction" method="execute">
-			<result name="input">/validate/input.jsp</result>
+		<action name="dataconvert" class="st2Demo.convert.demo.action.DateConvertAction" method="execute">
+			<result name="input">/converter/DateConvert.jsp</result>
 			<result name="success">/validate/success.jsp</result>
 		</action>
 		
-		<!-- 类型转行 simple主题测试 -->
-		<action name="simpleBaseAction" class="st2Demo.validate.Action.BaseAction" method="execute">
-			<result name="input">/validate/input_simple.jsp</result>
+
+		<!-- 通过为字段指定自定义的类型转换器实现从字符串到Date类型的转换 -->
+		<action name="dateconvertimpl" class="st2Demo.convert.ActionTest.DateConvertAction" method="execute">
+			<result name="input">/converter/DateConvert_impl.jsp</result>
 			<result name="success">/validate/success.jsp</result>
 		</action>
 		
