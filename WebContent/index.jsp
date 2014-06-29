@@ -257,6 +257,10 @@
 					<li><a href="validate/input_simple.jsp">基本类型转行(simple主题)</a></li>
 					<li><a href="converter/DateConvert.jsp">转行Date转换测试（默认）</a></li>
 					<li><a href="converter/DateConvert_impl.jsp">Date自定义类型转换器</a></li>
+					<li><a href="converter/DateConvert_model.jsp">Date自定义类型转换器(Model)</a></li>
+					<li><a href="converter/DateConvert_xml.jsp">Date自定义类型转换器(xml)</a></li>
+					<li><a href="converter/Convert_complext.jsp">复合类型测试</a></li>
+					<li><a href="converter/Convert_collection.jsp">集合类型测试</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.struts2.util.StrutsTypeConverter;
 
-
 public class DateConverter extends StrutsTypeConverter {
 	
 	public DateConverter() {
@@ -31,6 +30,7 @@ public class DateConverter extends StrutsTypeConverter {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("convertFromString :"+date);
 		return date;
 	}
 
@@ -47,6 +47,7 @@ public class DateConverter extends StrutsTypeConverter {
 			Date date = (Date)arg1;
 			result = sdf.format(date);
 		}
+		System.out.println("convertToString :"+result);
 		return result;
 	}
 

@@ -30,5 +30,28 @@
 			<result name="success">/validate/success.jsp</result>
 		</action>
 		
+		<!-- 当action和model不在同一个类中，并且不在同一个包中，类型转换器需要使用model-conversion.properties并且在要和model在同一包中 -->
+		<action name="dateconvertModel" class="st2Demo.convert.model.Action.PersonAction" method="execute">
+			<result name="input">/converter/DateConvert_model.jsp</result>
+			<result name="success">/validate/success.jsp</result>
+		</action>
+		
+		<!-- 通过读取web.xml的配置信息，生成一个时间类型的转换器 -->
+		<action name="dateconvertXML" class="st2Demo.convert.configXML.ACTION.PersonAction" method="execute">
+			<result name="input">/converter/DateConvert_xml.jsp</result>
+			<result name="success">/validate/success.jsp</result>
+		</action>
+		
+		<!-- 测试符合类型 -->
+		<action name="complext" class="st2Demo.convert.complext.Action.complextModelAction" method="execute">
+			<result name="input">/converter/Convert_complext.jsp</result>
+			<result name="success">/validate/success.jsp</result>
+		</action>
+		
+		<!-- 测试集合类型 -->
+		<action name="collectionAction" class="st2Demo.convert.conllect.CRM.TestCollectionAction" method="execute">
+			<result name="input">/converter/Convert_collection.jsp</result>
+			<result name="success">/validate/success.jsp</result>			
+		</action>
 	</package>
 </struts>
