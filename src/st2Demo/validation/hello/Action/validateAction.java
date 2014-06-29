@@ -1,4 +1,4 @@
-package st2Demo.validate.hello.Action;
+package st2Demo.validation.hello.Action;
 
 import com.opensymphony.xwork2.ActionSupport;
 

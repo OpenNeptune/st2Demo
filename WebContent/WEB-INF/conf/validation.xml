@@ -19,10 +19,15 @@
 
 
 		<!-- 一个最简单的输入验证 -->
-		<action  name="helloage" class="st2Demo.validate.hello.Action.validateAction" method="execute">
+		<action  name="helloage" class="st2Demo.validation.hello.Action.validateAction" method="execute">
 			<result name="input">/validation/input_helloage.jsp</result>
 			<result name="success">/success.jsp</result>
 		</action>
 		
+		<!-- 当action和model在不同包下的输入验证测试 -->
+		<action name="modelAction" class="st2Demo.validation.hello.Action.PersonActionTest" method="execute">
+			<result name="input">/validation/input_modelAction.jsp</result>
+			<result name="success">/success.jsp</result>
+		</action>
 	</package>
 </struts>

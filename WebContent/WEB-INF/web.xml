@@ -40,6 +40,7 @@
   </filter-mapping>
   
   <!-- 打印请求信息 -->
+  <!-- 
   <filter>
   	<filter-name>PrintRequest</filter-name>
   	<filter-class>Filter.PrintRequest</filter-class>
@@ -48,7 +49,7 @@
   	<filter-name>PrintRequest</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-  
+   -->
   
   
 </web-app>

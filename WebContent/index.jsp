@@ -282,6 +282,7 @@
 			<div class="list">
 				<ul>
 					<li><a href="validation/input_helloage.jsp">HelloAge(INT范围验证)</a></li>
+					<li><a href="validation/input_modelAction.jsp">ActionModel测试</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
