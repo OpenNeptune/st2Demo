@@ -265,6 +265,27 @@
 			</div>
 			<div class="clear"></div>
 		</div>
+		<div id="curd" class="column">
+			<div class="tit">
+				<h3>validation输入验证</h3>
+			</div>
+			<div class="know">
+				<h5>Struts2  的输入验证</h5>
+					– 基于  X Work Validation Framework  的声明式验证： Struts2  提供了<br>
+					一些基于  XWork Validation Framework  的内建验证程序 .  使用这些验证程序不需要编程 ,  只要在一个  XML  文件里对验证程序应该如何工作<br>
+					作出声明就可以了 .  需要声明的内容包括 : <br>
+					• 哪些字段需要进行验证<br>
+					• 使用什么验证规则<br>
+					• 在验证失败时应该把什么样的出错消息发送到浏览器端<br>
+					– 编程验证：通过编写代码来验证用户输入<br>
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="validation/input_helloage.jsp">HelloAge(INT范围验证)</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
 	</div>
 </body>
 </html>

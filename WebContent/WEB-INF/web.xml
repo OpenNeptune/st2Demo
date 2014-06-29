@@ -27,7 +27,8 @@
 				../conf/ActionTest.xml,
 				../conf/ognlTest.xml,
 				../conf/validate.xml,
-				../conf/convert.xml
+				../conf/convert.xml,
+				../conf/validation.xml
 			</param-value>
     </init-param>
   </filter>
