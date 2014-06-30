@@ -13,7 +13,7 @@
   <!-- 配置应用的时间格式 -->
   <context-param>
   	<param-name>datePattern</param-name>
-  	<param-value>yyyy-MM-dd HH:mm:ss</param-value>
+  	<param-value>yyyy-MM-dd</param-value>
   </context-param>
   
   <filter>

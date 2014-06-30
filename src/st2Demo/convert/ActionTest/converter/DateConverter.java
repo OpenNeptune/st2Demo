@@ -13,7 +13,7 @@ public class DateConverter extends StrutsTypeConverter {
 		System.out.println("DateConverter is call....");
 	}
 	
-	private  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	/**
 	 * 该方法是在将参数从字符串转为引用类型是调用，此处以Date类型为例子
 	 */

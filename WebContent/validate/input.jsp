@@ -31,6 +31,7 @@
 	<s:debug></s:debug>
 	<s:form action="/validate/baseAction.action">
 		<s:textfield name="age" label="年龄"></s:textfield>
+		<s:fielderror name="age"></s:fielderror>
 		<s:submit value="Add"></s:submit>
 	</s:form>
 </body>
