@@ -140,7 +140,7 @@ $(function(){
 	</s:form>
 	
 		<h5>List:直接写(属性名)属性</h5>
-	<s:form action="/converter/userConverterAction.action" method="post">
+	<s:form action="/converter/userConverterAction.action" method="post" validate="true">
 	<s:fielderror name="errors"></s:fielderror>
 	<table>
 		<tr>

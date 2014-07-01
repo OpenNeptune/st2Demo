@@ -5,42 +5,46 @@
 <validators>
 	<!-- 使用基于字段的验证 -->
     <field name="id">
-    	<field-validator type="required">
-    		<message>ID字段不能为空</message>
+    	<field-validator type="required" short-circuit="true">
+    		<message>id  is required</message>
     	</field-validator>
          <field-validator type="int" short-circuit="true">
              <param name="min">16</param>
              <param name="max">80</param>
-             <message>提示：ID needs to be between ${min} and ${max}</message>
+             <message>ID needs to be between ${min} and ${max}</message>
          </field-validator>
      </field>
 
      <field name="username">
          <field-validator type="requiredstring"  short-circuit="true">
          	 <param name="trim">true</param>
-             <message>提示：username is required</message>
+             <message>username is required</message>
          </field-validator>
      </field>
      
       <field name="password">
          <field-validator type="requiredstring"  short-circuit="true">
          	 <param name="trim">true</param>
-             <message>提示：password is required</message>
+             <message>password is required</message>
          </field-validator>
      </field>
      
       <field name="role">
          <field-validator type="requiredstring"  short-circuit="true">
          	 <param name="trim">true</param>
-             <message>提示：role is required</message>
+             <message>role is required</message>
          </field-validator>
      </field>
      
-     <!-- 此处的Date验证器有问题 蛋疼 -->
-     <field name="birht">
-		<field-validator type="date">
+     <field name="birth">
+     	<field-validator type="required" short-circuit="true">
+     	    <param name="trim">true</param>
+    		<message>birht is required</message>
+     	</field-validator>
+		<field-validator type="date"  short-circuit="true">
 			<param name="min">2014-01-01</param>
-			<message>提示: birht 不能小于2014-01-01</message>
+			<param name="max">2014-12-30</param>
+			<message>birht needs to be between ${min} and ${max}</message>
 		</field-validator>
      </field>
 </validators>

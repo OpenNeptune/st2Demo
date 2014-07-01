@@ -32,7 +32,6 @@ public class dateConverter extends StrutsTypeConverter {
 		SimpleDateFormat obj = null;
 		ServletContext context = ServletActionContext.getServletContext();
 		String pattern = context.getInitParameter("datePattern");
-		System.out.println("pattern:"+pattern);
 		obj = new SimpleDateFormat(pattern);
 		return obj;
 	}
@@ -47,10 +46,9 @@ public class dateConverter extends StrutsTypeConverter {
 				date =  getSdf().parse(values[0]);
 			} catch (ParseException e) {
 				date = null;
-				e.printStackTrace();
+				System.out.println("类型转换异常:"+e.getMessage());
 			}
 		}
-		System.out.println("convertFromString :"+date);
 		return date;
 	}
 
