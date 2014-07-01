@@ -26,8 +26,8 @@ public class DateConverter extends StrutsTypeConverter {
 			try {
 				date =  sdf.parse(values[0]);
 			} catch (ParseException e) {
-				date = null;
 				e.printStackTrace();
+				date = null;
 			}
 		}
 		System.out.println("convertFromString :"+date);

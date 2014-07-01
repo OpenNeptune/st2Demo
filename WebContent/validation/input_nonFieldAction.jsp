@@ -8,11 +8,11 @@
 </head>
 <body>
 	<s:debug></s:debug>
-	<s:form action="/validation/modelAction.action">
-		<s:textfield name="id" label="Id"></s:textfield>
-		<s:textfield name="name" label="Name"></s:textfield>
-		<s:fielderror name="person"></s:fielderror>
-		<s:submit name="submit"></s:submit>
+	<s:form action="/validation/nonfieldAction.action">
+		<s:textfield name="password" label="password"></s:textfield>
+		<s:textfield name="rpassword" label="rep-password"></s:textfield>
+		${errorMessages }
+		<s:submit value="提交"></s:submit>
 	</s:form>
 </body>
 </html>

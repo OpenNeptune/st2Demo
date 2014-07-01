@@ -221,7 +221,7 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div id="curd" class="column">
+		<div id="VALIDATE" class="column">
 			<div class="tit">
 				<h3>VALIDATE实例</h3>
 			</div>
@@ -261,13 +261,15 @@
 					<li><a href="converter/DateConvert_xml.jsp">Date自定义类型转换器(xml)</a></li>
 					<li><a href="converter/Convert_complext.jsp">复合类型测试</a></li>
 					<li><a href="converter/Convert_collection.jsp">集合类型测试</a></li>
+					<li><a href="converter/Convert_user.jsp">自定义类型转换器实例</a></li>
+					<li><a href="converter/Convert_listuser.jsp">自定义类型转换器实例List</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div id="curd" class="column">
+		<div id="validation" class="column">
 			<div class="tit">
-				<h3>validation输入验证</h3>
+				<h3>输入验证</h3>
 			</div>
 			<div class="know">
 				<h5>Struts2  的输入验证</h5>
@@ -283,6 +285,51 @@
 				<ul>
 					<li><a href="validation/input_helloage.jsp">HelloAge(INT范围验证)</a></li>
 					<li><a href="validation/input_modelAction.jsp">ActionModel测试</a></li>
+					<li><a href="validation/input_nonFieldAction.jsp">表达式验证</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="token" class="column">
+			<div class="tit">
+				<h3>表单重复提交</h3>
+			</div>
+			<div class="know">
+				<h5>什么是表单的重复提交</h5>
+					- 在不刷新表单页面的前提下: <br>
+					&nbsp;&nbsp;-- 多次点击提交按钮<br>
+					&nbsp;&nbsp;-- 已经提交成功, 按 "回退" 之后, 再点击 "提交按钮".<br>
+					&nbsp;&nbsp;-- 在控制器响应页面的形式为转发情况下，若已经提交成功, 然后点击 "刷新(F5)"<br>
+						
+					- 注意:
+					&nbsp;&nbsp;-- 若刷新表单页面, 再提交表单不算重复提交<br>
+					&nbsp;&nbsp;-- 若使用的是 redirect 的响应类型, 已经提交成功后, 再点击 "刷新", 不是表单的重复提交<br>
+				<h5>Struts2 解决表单的重复提交问题</h5>
+					I. 在 s:form 中添加 s:token 子标签<br>
+					&nbsp;&nbsp;- 生成一个隐藏域<br>
+					&nbsp;&nbsp;- 在 session 添加一个属性值<br>
+					&nbsp;&nbsp;- 隐藏域的值和 session 的属性值是一致的. <br>
+						
+					II. 使用 Token 或 TokenSession 拦截器. <br>
+					
+					&nbsp;&nbsp;- 这两个拦截器均不在默认的拦截器栈中, 所以需要手工配置一下<br>
+					&nbsp;&nbsp;- 若使用 Token 拦截器, 则需要配置一个 token.valid 的 result<br>
+					&nbsp;&nbsp;- 若使用 TokenSession 拦截器, 则不需要配置任何其它的 result<br>
+						
+					III. Token VS TokenSession<br>
+					
+					&nbsp;&nbsp;- 都是解决表单重复提交问题的<br>
+					&nbsp;&nbsp;- 使用 token 拦截器会转到 token.valid 这个 result<br>
+					&nbsp;&nbsp;- 使用 tokenSession 拦截器则还会响应那个目标页面, 但不会执行 tokenSession 的后续拦截器. 就像什么都没发生过一样!<br>
+						
+					IV. 可以使用 s:actionerror 标签来显示重复提交的错误消息.<br> 
+						该错误消息可以在国际化资源文件中覆盖.该消息可以在 struts-messages.properties 文件中找到<br>
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="token/input.jsp">表单重复提交</a></li>
+					<li><a href="token/inputTokenImpl.jsp">表单重复提交Token</a></li>
+					<li><a href="token/inputTokenSessionImpl.jsp">表单重复提交TokenSession</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

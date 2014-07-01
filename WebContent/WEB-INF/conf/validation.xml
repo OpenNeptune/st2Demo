@@ -4,8 +4,6 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="true" />
 
 	<package name="validation" namespace="/validation" extends="struts-default">
 		<default-action-ref name="index" />
@@ -27,6 +25,12 @@
 		<!-- 当action和model在不同包下的输入验证测试 -->
 		<action name="modelAction" class="st2Demo.validation.hello.Action.PersonActionTest" method="execute">
 			<result name="input">/validation/input_modelAction.jsp</result>
+			<result name="success">/success.jsp</result>
+		</action>
+		
+		<!-- 非字段验证 -->
+		<action name="nonfieldAction" class="st2Demo.validation.hello.Action.nonFieldValidationAction">
+			<result name="input">/validation/input_nonFieldAction.jsp</result>
 			<result name="success">/success.jsp</result>
 		</action>
 	</package>

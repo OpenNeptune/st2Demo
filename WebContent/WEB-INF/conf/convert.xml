@@ -4,8 +4,6 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="true" />
 
 	<package name="converter" namespace="/converter" extends="struts-default">
 		<default-action-ref name="index" />
@@ -52,6 +50,18 @@
 		<action name="collectionAction" class="st2Demo.convert.conllect.CRM.TestCollectionAction" method="execute">
 			<result name="input">/converter/Convert_collection.jsp</result>
 			<result name="success">/validate/success.jsp</result>			
+		</action>
+		
+		<!-- 将请求参数分装转换成一个对象 -->
+		<action name="userConverterAction" class="st2Demo.convert.instanceDemo.UserAction">
+			<result name="input">/converter/Convert_user.jsp</result>
+			<result name="success">/validate/success.jsp</result>	
+		</action>
+		
+		<!-- 将请求参数分装转换成一个对象 list -->
+		<action name="userConverterAction" class="st2Demo.convert.instanceDemo.UserListAction">
+			<result name="input">/converter/Convert_listuser.jsp</result>
+			<result name="success">/validate/success.jsp</result>	
 		</action>
 	</package>
 </struts>

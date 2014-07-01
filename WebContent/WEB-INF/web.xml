@@ -28,7 +28,8 @@
 				../conf/ognlTest.xml,
 				../conf/validate.xml,
 				../conf/convert.xml,
-				../conf/validation.xml
+				../conf/validation.xml,
+				../conf/token.xml
 			</param-value>
     </init-param>
   </filter>

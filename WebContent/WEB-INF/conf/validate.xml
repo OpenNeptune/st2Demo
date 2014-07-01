@@ -4,8 +4,6 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="true" />
 
 	<package name="validate" namespace="/validate" extends="struts-default">
 		<default-action-ref name="index" />
