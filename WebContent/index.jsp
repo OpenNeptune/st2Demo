@@ -333,6 +333,21 @@
 				</ul>
 			</div>
 			<div class="clear"></div>
+			<div id="messy" class="column">
+			<div class="tit">
+				<h3></h3>
+			</div>
+			<div class="know">
+				<h5>杂项</h5>
+					- 文件上传: <br>
+					
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="upload/fileUpload.jsp">文件上传</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
 		</div>
 	</div>
 </body>

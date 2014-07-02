@@ -6,12 +6,26 @@
 <struts>
 	<!-- 配置国际化资源文件 -->
 	<constant name="struts.custom.i18n.resources" value="i18n"></constant>
-	
-	
-	
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
-
+	<package name="file" namespace="/file" extends="struts-default">
+		<!-- 配置FileUploadInterceptor信息-->
+		<interceptors>
+			<interceptor-stack name="fileupload">
+				<interceptor-ref name="defaultStack">
+					<param name="fileUpload.maximumSize">2000</param>
+					<param name="fileUpload.allowedTypes">text/html,text/xml</param>
+					<param name="fileUpload.allowedExtensions">html,dtd,xml</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="fileupload"></default-interceptor-ref>
+		<action name="Fileupload" class="st2Demo.fileUpload.FileUploadAction">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/upload/fileUpload.jsp</result>
+		</action>
+	</package>
 	<!-- 
 		package：struts2使用package包来组织起配置的。
 			name：必需数序，用以指定当前包的名称
@@ -22,7 +36,7 @@
 				http://localhost:8080/contentPath/namespace/helloworld.action
 			
 	 -->
-	<package name="default" namespace="/helloworld" extends="struts-default">
+	<package name="helloword" namespace="/helloworld" extends="struts-default">
 		<default-action-ref name="index" />
 		<global-results>
 			<result name="error">/error.jsp</result>
