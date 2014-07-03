@@ -8,7 +8,6 @@ import st2Demo.convert.instanceDemo.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.validator.annotations.ConditionalVisitorFieldValidator;
-import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
 
 public class UserListAction extends ActionSupport implements ModelDriven<List<User>>{
 

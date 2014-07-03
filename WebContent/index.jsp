@@ -333,18 +333,58 @@
 				</ul>
 			</div>
 			<div class="clear"></div>
-			<div id="messy" class="column">
+		</div>
+		<div id="ajax" class="column">
 			<div class="tit">
-				<h3></h3>
+				<h3>Ajax</h3>
 			</div>
 			<div class="know">
-				<h5>杂项</h5>
-					- 文件上传: <br>
-					
+ 
+			</div>
+			<div class="list">
+				<ul>
+					<li><a href="ajax/ajaxTestAction.action">AjaxTestAction</a></li>
+					<li><a href="ajax/AjaxRegister.jsp">AjaxRegister</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="messy" class="column">
+			<div class="tit">
+				<h3>杂项</h3>
+			</div>
+			<div class="know">
+				<h5>文件上传</h5>
+				1. 文件的上传:<br>
+				&nbsp;&nbsp;1). 表单需要注意的 3 点<br>
+				&nbsp;&nbsp;2). Struts2 的文件上传实际上使用的是 Commons FileUpload 组件, 所以需要导入commons-fileupload-1.3.jar/commons-io-2.0.1.jar<br>
+				&nbsp;&nbsp;3). Struts2 进行文件上传需要使用 FileUpload 拦截器<br>
+				&nbsp;&nbsp;4). 基本的文件的上传: 直接在 Action 中定义如下 3 个属性, 并提供对应的 getter 和 setter<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;//文件对应的 File 对象<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;private File [fileFieldName];<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;//文件类型<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;private String [fileFieldName]ContentType;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;//文件名<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;private String [fileFieldName]FileName;<br>
+				&nbsp;&nbsp;5). 使用 IO 流进行文件的上传即可. <br>
+				&nbsp;&nbsp;6). 若传递多个文件, 则上述的 3 个属性, 可以改为 List 类型! 多个文件域的 name 属性值需要一致.<br>
+				&nbsp;&nbsp;7). 可以通过配置 FileUploadInterceptor 拦截器的参数的方式来进行限制<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;maximumSize (optional) - 默认的最大值为 2M. 上传的单个文件的最大值<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;allowedTypes (optional) - 允许的上传文件的类型. 多个使用 , 分割<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;allowedExtensions (optional) - 允许的上传文件的扩展名. 多个使用 , 分割.<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;注意: 在 org.apache.struts2 下的 default.properties 中有对上传的文件总的大小的限制. 可以使用常量的方式来修改该限制<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;struts.multipart.maxSize=2097152<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;定制错误消息. 可以在国际化资源文件中定义如下的消息:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;struts.messages.error.uploading - 文件上传出错的消息<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;struts.messages.error.file.too.large - 文件超过最大值的消息<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;struts.messages.error.content.type.not.allowed - 文件内容类型不合法的消息<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;struts.messages.error.file.extension.not.allowed - 文件扩展名不合法的消息<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;问题: 此种方式定制的消息并不完善. 可以参考 org.apache.struts2 下的 struts-messages.properties, 可以提供更多的定制信息.<br> 
 			</div>
 			<div class="list">
 				<ul>
 					<li><a href="upload/fileUpload.jsp">文件上传</a></li>
+					<li><a href="file/Filedownload.action">文件下载</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>

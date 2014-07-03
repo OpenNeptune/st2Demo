@@ -20,11 +20,19 @@
 			</interceptor-stack>
 		</interceptors>
 		<default-interceptor-ref name="fileupload"></default-interceptor-ref>
+		<!-- 文件上传 -->
 		<action name="Fileupload" class="st2Demo.fileUpload.FileUploadAction">
 			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/upload/fileUpload.jsp</result>
 		</action>
+		<!-- 文件下载 -->
+		<action name="Filedownload" class="st2Demo.fileUpload.FileDownloadAction">
+			<result type="stream">
+				<param name="bufferSize">2048</param>
+			</result>
+		</action>
+		
 	</package>
 	<!-- 
 		package：struts2使用package包来组织起配置的。

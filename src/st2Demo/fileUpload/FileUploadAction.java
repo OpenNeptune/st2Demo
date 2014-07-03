@@ -49,6 +49,7 @@ public class FileUploadAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		//在action中可以通过file对象将文件写入到指定的目录
 		System.out.println(this);
 		return SUCCESS;
 	}

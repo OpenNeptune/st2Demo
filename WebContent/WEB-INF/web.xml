@@ -29,7 +29,8 @@
 				../conf/validate.xml,
 				../conf/convert.xml,
 				../conf/validation.xml,
-				../conf/token.xml
+				../conf/token.xml,
+				../conf/ajax.xml
 			</param-value>
     </init-param>
   </filter>
@@ -39,7 +40,19 @@
     <dispatcher>REQUEST</dispatcher>   
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
-  
+  <!-- 配置struts的ajax -->  
+  <servlet>
+  	<servlet-name>DWR</servlet-name>
+  	<servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+  	<init-param>
+		<param-name>debug</param-name>
+		<param-value>true</param-value>
+	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DWR</servlet-name>
+  	<url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
   <!-- 打印请求信息 -->
   <!-- 
   <filter>
